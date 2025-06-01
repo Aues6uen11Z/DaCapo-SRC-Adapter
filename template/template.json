@@ -161,6 +161,9 @@
         },
         "deps_path": {
           "value": "./StarRailCopilot/requirements.txt"
+        },
+        "python_version": {
+          "value": "3.10"
         }
       }
     }
@@ -172,7 +175,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src.json Dungeon"
+          "value": "py ../main.py src Dungeon"
         }
       },
       "Planner": {
@@ -444,7 +447,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src.json Ornament"
+          "value": "py ../main.py src Ornament"
         }
       },
       "Ornament": {
@@ -605,7 +608,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src.json DailyQuest"
+          "value": "py ../main.py src DailyQuest"
         }
       },
       "DailyStorage": {
@@ -629,7 +632,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src.json BattlePass"
+          "value": "py ../main.py src BattlePass"
         }
       },
       "BattlePassStorage": {
@@ -695,7 +698,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src.json Assignment"
+          "value": "py ../main.py src Assignment"
         }
       },
       "Assignment": {
@@ -846,7 +849,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src.json DataUpdate"
+          "value": "py ../main.py src DataUpdate"
         }
       },
       "ItemStorage": {
@@ -890,7 +893,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src.json Freebies"
+          "value": "py ../main.py src Freebies"
         }
       },
       "SupportReward": {
@@ -910,7 +913,7 @@
           "value": false
         },
         "command": {
-          "value": "py ../main.py src.json Weekly"
+          "value": "py ../main.py src Weekly"
         }
       },
       "Weekly": {
@@ -1042,7 +1045,7 @@
           "value": false
         },
         "command": {
-          "value": "py ../main.py src.json Rogue"
+          "value": "py ../main.py src Rogue"
         }
       },
       "RogueWorld": {
@@ -1198,7 +1201,7 @@
           "value": false
         },
         "command": {
-          "value": "py ../main.py src.json Daemon"
+          "value": "py ../main.py src Daemon"
         }
       },
       "Daemon": {
@@ -1229,7 +1232,7 @@
           "value": false
         },
         "command": {
-          "value": "py ../main.py src.json PlannerScan"
+          "value": "py ../main.py src PlannerScan"
         }
       },
       "PlannerScan": {
