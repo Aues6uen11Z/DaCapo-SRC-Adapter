@@ -198,6 +198,11 @@ class Adapter(StarRailCopilot):
 
     def sync_config(self):
         src_ist_path = project_root / f"config/{self.config_name}.json"
+        if not src_ist_path.exists():
+            src_template_path = src_ist_path.with_stem("template")
+            src_ist_path.write_text(
+                src_template_path.read_text(encoding="utf-8"), encoding="utf-8"
+            )
         dacapo_ist_path = Path(__file__).parent / f"{self.config_name}.json"
         template_path = Path(__file__).parent / "template/template.json"
 
