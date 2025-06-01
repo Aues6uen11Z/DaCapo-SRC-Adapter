@@ -42,7 +42,8 @@ def gen_template():
                 "_Base": {
                     "env_name": {
                         "value": "src",
-                    }
+                    },
+                    "deps_path": {"value": "./StarRailCopilot/requirements.txt"},
                 }
             },
         }
