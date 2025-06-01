@@ -19,18 +19,25 @@ def gen_template():
             "General": {
                 "_Base": {
                     "language": {
+                        "type": "select",
                         "value": "zh-CN",
                     },
                     "work_dir": {
+                        "type": "input",
                         "value": "./repos/DaCapo-SRC-Adapter/StarRailCopilot",
                         "disabled": True,
                     },
                     "background": {
+                        "type": "checkbox",
                         "value": True,
                         "disabled": True,
                     },
-                    "config_path": {"value": "./repos/DaCapo-SRC-Adapter/src.json"},
+                    "config_path": {
+                        "type": "input",
+                        "value": "./repos/DaCapo-SRC-Adapter/src.json",
+                    },
                     "log_path": {
+                        "type": "input",
                         "value": "./repos/DaCapo-SRC-Adapter/StarRailCopilot/log",
                         "disabled": True,
                     },
@@ -66,9 +73,13 @@ def gen_template():
             template[menu_name][task_name] = {
                 "_Base": {
                     "active": {
+                        "type": "checkbox",
                         "value": True if menu_name == "Daily" else False,
                     },
-                    "command": {"value": f"py ../main.py src.json {task_name}"},
+                    "command": {
+                        "type": "input",
+                        "value": f"py ../main.py src.json {task_name}",
+                    },
                 }
             }
             for group_name, group_content in args[task_name].items():

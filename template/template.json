@@ -3,20 +3,25 @@
     "General": {
       "_Base": {
         "language": {
+          "type": "select",
           "value": "zh-CN"
         },
         "work_dir": {
+          "type": "input",
           "value": "./repos/DaCapo-SRC-Adapter/StarRailCopilot",
           "disabled": true
         },
         "background": {
+          "type": "checkbox",
           "value": true,
           "disabled": true
         },
         "config_path": {
+          "type": "input",
           "value": "./repos/DaCapo-SRC-Adapter/src.json"
         },
         "log_path": {
+          "type": "input",
           "value": "./repos/DaCapo-SRC-Adapter/StarRailCopilot/log",
           "disabled": true
         }
@@ -164,9 +169,11 @@
     "Dungeon": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": true
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json Dungeon"
         }
       },
@@ -436,9 +443,11 @@
     "Ornament": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": true
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json Ornament"
         }
       },
@@ -597,9 +606,11 @@
     "DailyQuest": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": true
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json DailyQuest"
         }
       },
@@ -621,9 +632,11 @@
     "BattlePass": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": true
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json BattlePass"
         }
       },
@@ -687,9 +700,11 @@
     "Assignment": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": true
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json Assignment"
         }
       },
@@ -838,9 +853,11 @@
     "DataUpdate": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": true
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json DataUpdate"
         }
       },
@@ -882,9 +899,11 @@
     "Freebies": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": true
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json Freebies"
         }
       },
@@ -902,9 +921,11 @@
     "Weekly": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": false
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json Weekly"
         }
       },
@@ -1034,9 +1055,11 @@
     "Rogue": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": false
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json Rogue"
         }
       },
@@ -1190,9 +1213,11 @@
     "Daemon": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": false
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json Daemon"
         }
       },
@@ -1221,9 +1246,11 @@
     "PlannerScan": {
       "_Base": {
         "active": {
+          "type": "checkbox",
           "value": false
         },
         "command": {
+          "type": "input",
           "value": "py ../main.py src.json PlannerScan"
         }
       },
