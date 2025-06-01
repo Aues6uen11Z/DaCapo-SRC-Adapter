@@ -1,0 +1,3 @@
+[submodule "StarRailCopilot"]
+	path = StarRailCopilot
+	url = https://github.com/LmeSzinc/StarRailCopilot

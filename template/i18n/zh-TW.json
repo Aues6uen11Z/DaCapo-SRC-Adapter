@@ -1,0 +1,1165 @@
+{
+  "Project": {
+    "tasks": {
+      "General": {
+        "groups": {
+          "Emulator": {
+            "name": "模擬器設定",
+            "help": "",
+            "items": {
+              "Serial": {
+                "name": "模擬器 Serial",
+                "help": "常見的模擬器 Serial 可以查詢下方列表\n填 \"auto\" 自動檢測模擬器，多個模擬器正在運行或使用不支援自動檢測的模擬器時無法使用 \"auto\"，必須手動填寫\n模擬器預設 Serial：\n- 藍疊模擬器 127.0.0.1:5555\n- 藍疊模擬器4 Hyper-v版，填\"bluestacks4-hyperv\"自動連接，多開填\"bluestacks4-hyperv-2\"以此類推\n- 藍疊模擬器5 Hyper-v版，填\"bluestacks5-hyperv\"自動連接，多開填\"bluestacks5-hyperv-1\"以此類推\n- 夜神模擬器 127.0.0.1:62001\n- 夜神模擬器64位元 127.0.0.1:59865\n- MuMu模擬器/MuMu模擬器X 127.0.0.1:7555\n- MuMu模擬器12 127.0.0.1:16384\n- 逍遙模擬器 127.0.0.1:21503\n- 雷電模擬器 emulator-5554 或 127.0.0.1:5555\n- WSA，填\"wsa-0\"使遊戲在後臺運行，需要使用第三方軟件操控或關閉\n如果你使用了模擬器的多開功能，他們的 Serial 將不是預設的，可以在 console.bat 中執行 `adb devices` 查詢，或根據模擬器官方的教程填寫"
+              },
+              "GameClient": {
+                "name": "遊戲客戶端",
+                "help": "選擇雲端遊戲時，將自動排隊登入，雲端遊戲目前僅有國服",
+                "options": {
+                  "android": "安卓端",
+                  "cloud_android": "雲端遊戲安卓端"
+                }
+              },
+              "PackageName": {
+                "name": "遊戲伺服器",
+                "help": "無法區分國際服的不同地區，請手動選擇伺服器",
+                "options": {
+                  "auto": "自動檢測",
+                  "CN-Official": "[國服]-官服",
+                  "CN-Bilibili": "[國服]-B服 ",
+                  "OVERSEA-America": "[國際服]-美洲",
+                  "OVERSEA-Asia": "[國際服]-亞洲",
+                  "OVERSEA-Europe": "[國際服]-歐洲",
+                  "OVERSEA-TWHKMO": "[國際服]-台港澳"
+                }
+              },
+              "GameLanguage": {
+                "name": "遊戲內文本語言",
+                "help": "目前僅支援簡體中文和英文，請在遊戲內設定文本語言為其中的一種",
+                "options": {
+                  "auto": "自動檢測",
+                  "cn": "简体中文",
+                  "en": "English"
+                }
+              },
+              "ScreenshotMethod": {
+                "name": "模擬器截圖方案",
+                "help": "使用自動選擇時，將執行一次性能測試並自動更改為最快的截圖方案\n一般情況下的速度: DroidCast_raw >> aScreenCap_nc > ADB_nc >>> aScreenCap > uiautomator2 ~= ADB\n運行 工具 - 性能測試 以尋找最快的方案",
+                "options": {
+                  "auto": "自動選擇最快的",
+                  "ADB": "ADB",
+                  "ADB_nc": "ADB_nc",
+                  "uiautomator2": "uiautomator2",
+                  "aScreenCap": "aScreenCap",
+                  "aScreenCap_nc": "aScreenCap_nc",
+                  "DroidCast": "DroidCast",
+                  "DroidCast_raw": "DroidCast_raw",
+                  "scrcpy": "scrcpy",
+                  "nemu_ipc": "nemu_ipc",
+                  "ldopengl": "ldopengl"
+                }
+              },
+              "CloudPriorQueue": {
+                "name": "在雲端遊戲中使用星雲幣快速排隊",
+                "help": ""
+              },
+              "AdbRestart": {
+                "name": "在檢測不到設備的時候嘗試重啟adb",
+                "help": ""
+              }
+            }
+          },
+          "EmulatorInfo": {
+            "name": "模擬器設定",
+            "help": "下列數值是根據Serial自動填充的，如果不懂請不要隨意修改",
+            "items": {
+              "Emulator": {
+                "name": "模擬器類型",
+                "help": "",
+                "options": {
+                  "auto": "自動檢測",
+                  "NoxPlayer": "夜神模擬器",
+                  "NoxPlayer64": "夜神模擬器64位",
+                  "BlueStacks4": "藍疊模擬器4",
+                  "BlueStacks5": "藍疊模擬器5",
+                  "BlueStacks4HyperV": "藍疊模擬器4 Hyper-V",
+                  "BlueStacks5HyperV": "藍疊模擬器5 Hyper-V",
+                  "LDPlayer3": "雷電模擬器3",
+                  "LDPlayer4": "雷電模擬器4",
+                  "LDPlayer9": "雷電模擬器9",
+                  "MuMuPlayer": "MuMu模擬器",
+                  "MuMuPlayerX": "MuMu模擬器X",
+                  "MuMuPlayer12": "MuMu模擬器12",
+                  "MEmuPlayer": "逍遙模擬器"
+                }
+              },
+              "name": {
+                "name": "模擬器實例名稱",
+                "help": ""
+              },
+              "path": {
+                "name": "模擬器安裝路徑",
+                "help": ""
+              }
+            }
+          },
+          "Error": {
+            "name": "除錯設定",
+            "help": "",
+            "items": {
+              "Restart": {
+                "name": "出錯時，重啟遊戲",
+                "help": "",
+                "options": {
+                  "game": "重啟遊戲",
+                  "game_emulator": "重啟模擬器和遊戲"
+                }
+              },
+              "SaveError": {
+                "name": "出錯時，保存 Log 和截圖",
+                "help": ""
+              },
+              "ScreenshotLength": {
+                "name": "出錯時，保留最後 X 張截圖",
+                "help": ""
+              },
+              "OnePushConfig": {
+                "name": "錯誤推送設定",
+                "help": "發生無法處理的異常後，使用 Onepush 推送错误消息。設定參考文檔：https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/Onepush-configuration-%5BCN%5D"
+              }
+            }
+          },
+          "Optimization": {
+            "name": "優化設定",
+            "help": "",
+            "items": {
+              "WhenTaskQueueEmpty": {
+                "name": "當任務隊列清空後",
+                "help": "無任務時關閉遊戲，能在收菜期間降低 CPU 佔用",
+                "options": {
+                  "stay_there": "停在原處",
+                  "goto_main": "前往主界面",
+                  "close_game": "關閉遊戲"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Daily": {
+    "name": "每日",
+    "tasks": {
+      "Dungeon": {
+        "name": "每日副本",
+        "groups": {
+          "Planner": {
+            "name": "養成規劃進度",
+            "help": "優先執行養成規劃，養成規劃完成後，執行 \"每日副本設定\"",
+            "items": {
+              "PlannerOverall": {
+                "name": "養成規劃",
+                "help": "角色養成規劃總體進度"
+              }
+            }
+          },
+          "PlannerTarget": {
+            "name": "養成規劃目標",
+            "help": "",
+            "items": {}
+          },
+          "Dungeon": {
+            "name": "每日副本設定",
+            "help": "打本清體力直到清空",
+            "items": {
+              "Name": {
+                "name": "副本名稱",
+                "help": "默認打本設定",
+                "options": {
+                  "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
+                  "Cavern_of_Corrosion_Path_of_Aria": "遺器：英豪 & 詩人（絃歌之徑）",
+                  "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司鐸 & 學者（迷識之徑）",
+                  "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：鐵騎 & 勇烈（勇騎之徑）",
+                  "Cavern_of_Corrosion_Path_of_Dreamdive": "遺器：死水 & 鐘錶匠（夢潛之徑）",
+                  "Cavern_of_Corrosion_Path_of_Darkness": "遺器：大公 & DoT套（幽冥之徑）",
+                  "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "遺器：蒔者 & 信使（藥使之徑）",
+                  "Cavern_of_Corrosion_Path_of_Conflagration": "遺器：火套 & 虛數套（野焰之徑）",
+                  "Cavern_of_Corrosion_Path_of_Holy_Hymn": "遺器：防禦套 & 雷套（聖頌之徑）",
+                  "Cavern_of_Corrosion_Path_of_Providence": "遺器：鐵衛 & 量子套（睿治之徑）",
+                  "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套 & 快槍手（漂泊之徑）",
+                  "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套 & 怪盜（迅拳之徑）",
+                  "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：冰套 & 風套（霜風之徑）",
+                  "Calyx_Golden_Memories_Amphoreus": "材料：角色經驗（回憶之蕾 翁法羅斯）",
+                  "Calyx_Golden_Memories_Penacony": "材料：角色經驗（回憶之蕾 匹諾康尼）",
+                  "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色經驗（回憶之蕾 仙舟羅浮）",
+                  "Calyx_Golden_Memories_Jarilo_VI": "材料：角色經驗（回憶之蕾 雅利洛-Ⅵ）",
+                  "Calyx_Golden_Aether_Amphoreus": "材料：武器經驗（乙太之蕾 翁法羅斯）",
+                  "Calyx_Golden_Aether_Penacony": "材料：武器經驗（乙太之蕾 匹諾康尼）",
+                  "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器經驗（乙太之蕾 仙舟羅浮）",
+                  "Calyx_Golden_Aether_Jarilo_VI": "材料：武器經驗（乙太之蕾 雅利洛-Ⅵ）",
+                  "Calyx_Golden_Treasures_Amphoreus": "材料：信用點（藏珍之蕾 翁法羅斯）",
+                  "Calyx_Golden_Treasures_Penacony": "材料：信用點（藏珍之蕾 匹諾康尼）",
+                  "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用點（藏珍之蕾 仙舟羅浮）",
+                  "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用點（藏珍之蕾 雅利洛-Ⅵ）",
+                  "Calyx_Crimson_Destruction_Herta_StorageZone": "行跡材料：毀滅（收容艙段）",
+                  "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "行跡材料：毀滅（鱗淵境）",
+                  "Calyx_Crimson_Preservation_Herta_SupplyZone": "行跡材料：存護（支援艙段）",
+                  "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "行跡材料：存護（克勞克影視樂園）",
+                  "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "行跡材料：巡獵（城郊雪原）",
+                  "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "行跡材料：巡獵（蘇樂達熱砂海選會場）",
+                  "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "行跡材料：豐饒（邊緣通道）",
+                  "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "行跡材料：豐饒（綏園）",
+                  "Calyx_Crimson_Erudition_Jarilo_RivetTown": "行跡材料：智識（鉚釘鎮）",
+                  "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "行跡材料：智識（匹諾康尼大劇院）",
+                  "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "行跡材料：同諧（機械聚落）",
+                  "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "行跡材料：同諧（白日夢飯店-夢境）",
+                  "Calyx_Crimson_Nihility_Jarilo_GreatMine": "行跡材料：虛無（大礦區）",
+                  "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "行跡材料：虛無（丹鼎司）",
+                  "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "行跡材料：記憶（紛爭荒墟懸鋒城）",
+                  "Stagnant_Shadow_Spike": "晉階材料：物理（娜塔莎 / 克拉拉 / 盧卡 / 素裳）",
+                  "Stagnant_Shadow_Perdition": "晉階材料：物理（寒鴉 / 銀枝）",
+                  "Stagnant_Shadow_Duty": "晉階材料：物理（波提歐 / 知更鳥 / 雲璃）",
+                  "Stagnant_Shadow_Blaze": "晉階材料：火（姬子 / 艾絲妲 / 虎克）",
+                  "Stagnant_Shadow_Scorch": "晉階材料：火（桂乃芬 / 托帕&帳帳 / 忘歸人）",
+                  "Stagnant_Shadow_Ire": "晉階材料：火（流螢 / 加拉赫 / 椒丘 / 靈砂）",
+                  "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
+                  "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
+                  "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
+                  "Stagnant_Shadow_Fulmination": "晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
+                  "Stagnant_Shadow_Doom": "晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
+                  "Stagnant_Shadow_Mechwolf": "晉階材料：雷（貊澤 / 阿格萊雅）",
+                  "Stagnant_Shadow_Gust": "晉階材料：風（丹恆 / 布洛妮婭 / 桑博）",
+                  "Stagnant_Shadow_Celestial": "晉階材料：風（刃 / 藿藿 / 黑天鵝）",
+                  "Stagnant_Shadow_Gloam": "晉階材料：風（飛霄 / 那刻夏 / 風堇）",
+                  "Stagnant_Shadow_Quanta": "晉階材料：量子（銀狼 / 希兒 / 青雀）",
+                  "Stagnant_Shadow_Abomination": "晉階材料：量子（玲可 / 符玄 / 雪衣）",
+                  "Stagnant_Shadow_Roast": "晉階材料：量子（翡翠 / 花火）",
+                  "Stagnant_Shadow_Gelidmoon": "晉階材料：量子（緹寶 / 遐蝶 / 賽飛兒）",
+                  "Stagnant_Shadow_Mirage": "晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
+                  "Stagnant_Shadow_Puppetry": "晉階材料：虛數（丹恆•飲月 / 砂金 / 真理醫生）",
+                  "Stagnant_Shadow_Timbre": "晉階材料：虛數（星期日 / 亂破）",
+                  "Stagnant_Shadow_Sloggyre": "晉階材料：虛數（萬敵）"
+                }
+              },
+              "NameAtDoubleCalyx": {
+                "name": "有雙倍花活動時，選擇副本",
+                "help": "次數耗儘後回退到默認打本設定",
+                "options": {
+                  "Calyx_Golden_Memories_Amphoreus": "材料：角色經驗（回憶之蕾 翁法羅斯）",
+                  "Calyx_Golden_Memories_Penacony": "材料：角色經驗（回憶之蕾 匹諾康尼）",
+                  "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色經驗（回憶之蕾 仙舟羅浮）",
+                  "Calyx_Golden_Memories_Jarilo_VI": "材料：角色經驗（回憶之蕾 雅利洛-Ⅵ）",
+                  "Calyx_Golden_Aether_Amphoreus": "材料：武器經驗（乙太之蕾 翁法羅斯）",
+                  "Calyx_Golden_Aether_Penacony": "材料：武器經驗（乙太之蕾 匹諾康尼）",
+                  "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器經驗（乙太之蕾 仙舟羅浮）",
+                  "Calyx_Golden_Aether_Jarilo_VI": "材料：武器經驗（乙太之蕾 雅利洛-Ⅵ）",
+                  "Calyx_Golden_Treasures_Amphoreus": "材料：信用點（藏珍之蕾 翁法羅斯）",
+                  "Calyx_Golden_Treasures_Penacony": "材料：信用點（藏珍之蕾 匹諾康尼）",
+                  "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用點（藏珍之蕾 仙舟羅浮）",
+                  "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用點（藏珍之蕾 雅利洛-Ⅵ）",
+                  "Calyx_Crimson_Destruction_Herta_StorageZone": "行跡材料：毀滅（收容艙段）",
+                  "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "行跡材料：毀滅（鱗淵境）",
+                  "Calyx_Crimson_Preservation_Herta_SupplyZone": "行跡材料：存護（支援艙段）",
+                  "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "行跡材料：存護（克勞克影視樂園）",
+                  "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "行跡材料：巡獵（城郊雪原）",
+                  "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "行跡材料：巡獵（蘇樂達熱砂海選會場）",
+                  "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "行跡材料：豐饒（邊緣通道）",
+                  "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "行跡材料：豐饒（綏園）",
+                  "Calyx_Crimson_Erudition_Jarilo_RivetTown": "行跡材料：智識（鉚釘鎮）",
+                  "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "行跡材料：智識（匹諾康尼大劇院）",
+                  "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "行跡材料：同諧（機械聚落）",
+                  "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "行跡材料：同諧（白日夢飯店-夢境）",
+                  "Calyx_Crimson_Nihility_Jarilo_GreatMine": "行跡材料：虛無（大礦區）",
+                  "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "行跡材料：虛無（丹鼎司）",
+                  "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "行跡材料：記憶（紛爭荒墟懸鋒城）"
+                }
+              },
+              "NameAtDoubleRelic": {
+                "name": "有遺器活動時，選擇副本",
+                "help": "次數耗儘後回退到默認打本設定",
+                "options": {
+                  "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
+                  "Cavern_of_Corrosion_Path_of_Aria": "遺器：英豪 & 詩人（絃歌之徑）",
+                  "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司鐸 & 學者（迷識之徑）",
+                  "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：鐵騎 & 勇烈（勇騎之徑）",
+                  "Cavern_of_Corrosion_Path_of_Dreamdive": "遺器：死水 & 鐘錶匠（夢潛之徑）",
+                  "Cavern_of_Corrosion_Path_of_Darkness": "遺器：大公 & DoT套（幽冥之徑）",
+                  "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "遺器：蒔者 & 信使（藥使之徑）",
+                  "Cavern_of_Corrosion_Path_of_Conflagration": "遺器：火套 & 虛數套（野焰之徑）",
+                  "Cavern_of_Corrosion_Path_of_Holy_Hymn": "遺器：防禦套 & 雷套（聖頌之徑）",
+                  "Cavern_of_Corrosion_Path_of_Providence": "遺器：鐵衛 & 量子套（睿治之徑）",
+                  "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套 & 快槍手（漂泊之徑）",
+                  "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套 & 怪盜（迅拳之徑）",
+                  "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：冰套 & 風套（霜風之徑）"
+                }
+              },
+              "Team": {
+                "name": "打本隊伍",
+                "help": "",
+                "options": {
+                  "1": "1",
+                  "2": "2",
+                  "3": "3",
+                  "4": "4",
+                  "5": "5",
+                  "6": "6",
+                  "7": "7",
+                  "8": "8",
+                  "9": "9"
+                }
+              }
+            }
+          },
+          "DungeonSupport": {
+            "name": "支援設定",
+            "help": "",
+            "items": {
+              "Use": {
+                "name": "使用好友支援",
+                "help": "",
+                "options": {
+                  "when_daily": "僅當每日任務需要時使用",
+                  "always_use": "總是使用"
+                }
+              },
+              "Character": {
+                "name": "好友支援角色",
+                "help": "選擇好友支援角色，未找到則選擇默認（第一個）角色\n支援角色不要與隊伍中的角色重複，建議置頂好友角色",
+                "options": {
+                  "FirstCharacter": "支援列表第一個角色",
+                  "Hyacine": "[3.3] 風堇",
+                  "Cipher": "[3.3] 賽飛兒",
+                  "Castorice": "[3.2] 遐蝶",
+                  "Anaxa": "[3.2] 那刻夏",
+                  "Tribbie": "[3.1] 緹寶",
+                  "Mydei": "[3.1] 萬敵",
+                  "TheHerta": "[3.0] 大黑塔",
+                  "Aglaea": "[3.0] 阿格萊雅",
+                  "Sunday": "[2.7] 星期日",
+                  "Fugue": "[2.7] 忘歸人",
+                  "Rappa": "[2.6] 亂破",
+                  "Feixiao": "[2.5] 飛霄",
+                  "Lingsha": "[2.5] 靈砂",
+                  "Moze": "[2.5] 貊澤",
+                  "Yunli": "[2.4] 雲璃",
+                  "March7thTheHunt": "[2.4] 三月七•巡獵",
+                  "Jiaoqiu": "[2.4] 椒丘",
+                  "Firefly": "[2.3] 流螢",
+                  "Jade": "[2.3] 翡翠",
+                  "Robin": "[2.2] 知更鳥",
+                  "Boothill": "[2.2] 波提歐",
+                  "Acheron": "[2.1] 黃泉",
+                  "Aventurine": "[2.1] 砂金",
+                  "Gallagher": "[2.1] 加拉赫",
+                  "BlackSwan": "[2.0] 黑天鵝",
+                  "Sparkle": "[2.0] 花火",
+                  "Misha": "[2.0] 米沙",
+                  "RuanMei": "[1.6] 阮•梅",
+                  "DrRatio": "[1.6] 真理醫生",
+                  "Xueyi": "[1.6] 雪衣",
+                  "Huohuo": "[1.5] 藿藿",
+                  "Argenti": "[1.5] 銀枝",
+                  "Hanya": "[1.5] 寒鴉",
+                  "Jingliu": "[1.4] 鏡流",
+                  "TopazNumby": "[1.4] 托帕&帳帳",
+                  "Guinaifen": "[1.4] 桂乃芬",
+                  "DanHengImbibitorLunae": "[1.3] 丹恆•飲月",
+                  "FuXuan": "[1.3] 符玄",
+                  "Lynx": "[1.3] 玲可",
+                  "Blade": "[1.2] 刃",
+                  "Kafka": "[1.2] 卡芙卡",
+                  "Luka": "[1.2] 盧卡",
+                  "SilverWolf": "[1.1] 銀狼",
+                  "Luocha": "[1.1] 羅剎",
+                  "Yukong": "[1.1] 馭空",
+                  "Seele": "[1.0] 希兒",
+                  "JingYuan": "[1.0] 景元",
+                  "TrailblazerDestruction": "開拓者•毀滅",
+                  "TrailblazerPreservation": "開拓者•存護",
+                  "TrailblazerHarmony": "開拓者•同諧",
+                  "TrailblazerRemembrance": "開拓者•記憶",
+                  "Himeko": "姬子",
+                  "Welt": "瓦爾特",
+                  "Gepard": "傑帕德",
+                  "Bronya": "布洛妮婭",
+                  "Clara": "克拉拉",
+                  "Yanqing": "彥卿",
+                  "Bailu": "白露",
+                  "March7thPreservation": "三月七•存護",
+                  "DanHeng": "丹恆",
+                  "Asta": "艾絲妲",
+                  "Serval": "希露瓦",
+                  "Herta": "黑塔",
+                  "Qingque": "青雀",
+                  "Sushang": "素裳",
+                  "Hook": "虎克",
+                  "Arlan": "阿蘭",
+                  "Sampo": "桑博",
+                  "Tingyun": "停雲",
+                  "Pela": "佩拉",
+                  "Natasha": "娜塔莎"
+                }
+              }
+            }
+          },
+          "DungeonStorage": {
+            "name": "每日副本",
+            "help": "",
+            "items": {}
+          },
+          "TrailblazePower": {
+            "name": "開拓力設定",
+            "help": "",
+            "items": {
+              "ExtractReservedTrailblazePower": {
+                "name": "取出後備開拓力",
+                "help": ""
+              },
+              "UseFuel": {
+                "name": "使用燃料",
+                "help": ""
+              },
+              "FuelReserve": {
+                "name": "保留 X 燃料",
+                "help": ""
+              }
+            }
+          }
+        }
+      },
+      "Ornament": {
+        "name": "飾品提取",
+        "groups": {
+          "Ornament": {
+            "name": "飾品提取設定",
+            "help": "",
+            "items": {
+              "Dungeon": {
+                "name": "副本名稱",
+                "help": "",
+                "options": {
+                  "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",
+                  "Divergent_Universe_Famished_Worker": "飾品：海域 & 奇想（蠹役飢腸）",
+                  "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 火宮（永恆笑劇）",
+                  "Divergent_Universe_To_Sweet_Dreams": "飾品：茨岡尼亞 & 出雲（伴你入眠）",
+                  "Divergent_Universe_Pouring_Blades": "飾品：蒼穹 & 匹諾康尼（天劍如雨）",
+                  "Divergent_Universe_Fruit_of_Evil": "飾品：繁星 & 龍骨（孽果盤生）",
+                  "Divergent_Universe_Permafrost": "飾品：貝洛伯格 & 薩爾索圖（百年凍土）",
+                  "Divergent_Universe_Gentle_Words": "飾品：商業公司 & 差分機（溫柔話語）",
+                  "Divergent_Universe_Smelted_Heart": "飾品：盜賊 & 翁瓦克（浴火鋼心）",
+                  "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟（堅城不倒）"
+                }
+              },
+              "UseImmersifier": {
+                "name": "使用沉浸器領取遺器",
+                "help": "",
+                "options": {
+                  "true": "已啟用"
+                }
+              },
+              "DoubleEvent": {
+                "name": "參與雙倍內圈儀器活動",
+                "help": "",
+                "options": {
+                  "true": "已啟用"
+                }
+              },
+              "UseStamina": {
+                "name": "參與雙倍內圈遺器活動",
+                "help": "優先將體力用於農內圈遺器，優先於模擬宇宙和養成規劃"
+              }
+            }
+          },
+          "DungeonSupport": {
+            "name": "支援設定",
+            "help": "",
+            "items": {
+              "Use": {
+                "name": "使用好友支援",
+                "help": "",
+                "options": {
+                  "when_daily": "僅當每日任務需要時使用",
+                  "always_use": "總是使用"
+                }
+              },
+              "Character": {
+                "name": "好友支援角色",
+                "help": "選擇好友支援角色，未找到則選擇默認（第一個）角色\n支援角色不要與隊伍中的角色重複，建議置頂好友角色",
+                "options": {
+                  "FirstCharacter": "支援列表第一個角色",
+                  "Hyacine": "[3.3] 風堇",
+                  "Cipher": "[3.3] 賽飛兒",
+                  "Castorice": "[3.2] 遐蝶",
+                  "Anaxa": "[3.2] 那刻夏",
+                  "Tribbie": "[3.1] 緹寶",
+                  "Mydei": "[3.1] 萬敵",
+                  "TheHerta": "[3.0] 大黑塔",
+                  "Aglaea": "[3.0] 阿格萊雅",
+                  "Sunday": "[2.7] 星期日",
+                  "Fugue": "[2.7] 忘歸人",
+                  "Rappa": "[2.6] 亂破",
+                  "Feixiao": "[2.5] 飛霄",
+                  "Lingsha": "[2.5] 靈砂",
+                  "Moze": "[2.5] 貊澤",
+                  "Yunli": "[2.4] 雲璃",
+                  "March7thTheHunt": "[2.4] 三月七•巡獵",
+                  "Jiaoqiu": "[2.4] 椒丘",
+                  "Firefly": "[2.3] 流螢",
+                  "Jade": "[2.3] 翡翠",
+                  "Robin": "[2.2] 知更鳥",
+                  "Boothill": "[2.2] 波提歐",
+                  "Acheron": "[2.1] 黃泉",
+                  "Aventurine": "[2.1] 砂金",
+                  "Gallagher": "[2.1] 加拉赫",
+                  "BlackSwan": "[2.0] 黑天鵝",
+                  "Sparkle": "[2.0] 花火",
+                  "Misha": "[2.0] 米沙",
+                  "RuanMei": "[1.6] 阮•梅",
+                  "DrRatio": "[1.6] 真理醫生",
+                  "Xueyi": "[1.6] 雪衣",
+                  "Huohuo": "[1.5] 藿藿",
+                  "Argenti": "[1.5] 銀枝",
+                  "Hanya": "[1.5] 寒鴉",
+                  "Jingliu": "[1.4] 鏡流",
+                  "TopazNumby": "[1.4] 托帕&帳帳",
+                  "Guinaifen": "[1.4] 桂乃芬",
+                  "DanHengImbibitorLunae": "[1.3] 丹恆•飲月",
+                  "FuXuan": "[1.3] 符玄",
+                  "Lynx": "[1.3] 玲可",
+                  "Blade": "[1.2] 刃",
+                  "Kafka": "[1.2] 卡芙卡",
+                  "Luka": "[1.2] 盧卡",
+                  "SilverWolf": "[1.1] 銀狼",
+                  "Luocha": "[1.1] 羅剎",
+                  "Yukong": "[1.1] 馭空",
+                  "Seele": "[1.0] 希兒",
+                  "JingYuan": "[1.0] 景元",
+                  "TrailblazerDestruction": "開拓者•毀滅",
+                  "TrailblazerPreservation": "開拓者•存護",
+                  "TrailblazerHarmony": "開拓者•同諧",
+                  "TrailblazerRemembrance": "開拓者•記憶",
+                  "Himeko": "姬子",
+                  "Welt": "瓦爾特",
+                  "Gepard": "傑帕德",
+                  "Bronya": "布洛妮婭",
+                  "Clara": "克拉拉",
+                  "Yanqing": "彥卿",
+                  "Bailu": "白露",
+                  "March7thPreservation": "三月七•存護",
+                  "DanHeng": "丹恆",
+                  "Asta": "艾絲妲",
+                  "Serval": "希露瓦",
+                  "Herta": "黑塔",
+                  "Qingque": "青雀",
+                  "Sushang": "素裳",
+                  "Hook": "虎克",
+                  "Arlan": "阿蘭",
+                  "Sampo": "桑博",
+                  "Tingyun": "停雲",
+                  "Pela": "佩拉",
+                  "Natasha": "娜塔莎"
+                }
+              }
+            }
+          },
+          "TrailblazePower": {
+            "name": "開拓力設定",
+            "help": "",
+            "items": {
+              "ExtractReservedTrailblazePower": {
+                "name": "取出後備開拓力",
+                "help": ""
+              },
+              "UseFuel": {
+                "name": "使用燃料",
+                "help": ""
+              },
+              "FuelReserve": {
+                "name": "保留 X 燃料",
+                "help": ""
+              }
+            }
+          }
+        }
+      },
+      "DailyQuest": {
+        "name": "每日任務",
+        "groups": {
+          "DailyStorage": {
+            "name": "每日任務",
+            "help": "",
+            "items": {
+              "DailyActivity": {
+                "name": "活躍度",
+                "help": ""
+              },
+              "DailyQuest": {
+                "name": "每日任務",
+                "help": ""
+              }
+            }
+          }
+        }
+      },
+      "BattlePass": {
+        "name": "無名勳禮",
+        "groups": {
+          "BattlePassStorage": {
+            "name": "無名勳禮",
+            "help": "",
+            "items": {
+              "BattlePassLevel": {
+                "name": "無名勳禮",
+                "help": ""
+              },
+              "BattlePassSimulatedUniverse": {
+                "name": "完成1次「模擬宇宙」",
+                "help": ""
+              },
+              "BattlePassQuestCalyx": {
+                "name": "完成20次「擬造花萼」",
+                "help": ""
+              },
+              "BattlePassQuestEchoOfWar": {
+                "name": "完成2次「歷戰餘響」",
+                "help": ""
+              },
+              "BattlePassQuestCredits": {
+                "name": "累计消耗30万信用点",
+                "help": ""
+              },
+              "BattlePassQuestSynthesizeConsumables": {
+                "name": "累计合成消耗品10次",
+                "help": ""
+              },
+              "BattlePassQuestStagnantShadow": {
+                "name": "完成3次「凝滯虛影」",
+                "help": ""
+              },
+              "BattlePassQuestCavernOfCorrosion": {
+                "name": "完成8次「侵蚀隧洞」",
+                "help": ""
+              },
+              "BattlePassQuestTrailblazePower": {
+                "name": "累積消耗100點開拓力（上限1400點開拓力）",
+                "help": ""
+              }
+            }
+          }
+        }
+      },
+      "Assignment": {
+        "name": "委託",
+        "groups": {
+          "Assignment": {
+            "name": "委託設定",
+            "help": "領取獎勵並派遣，優先處理指定委託\n若處理指定委託之後未達到上限，則按經驗材料 → 角色專屬素材 → 合成材料的順序來派遣委託",
+            "items": {
+              "ClaimAll": {
+                "name": "再次派遣先前委託",
+                "help": "如果先前派遣數量未達委託上限，按下方委託選擇進行填充"
+              },
+              "Name_1": {
+                "name": "第1個委託選擇",
+                "help": "",
+                "options": {
+                  "Tranquility_of_Vimala_bhumi": "思緒末屑（離垢清淨）",
+                  "A_Startling_Night_Terror": "蓄夢元件（劫夢驚魂）",
+                  "Fire_Lord_Inflames_Blades_of_War": "工造機杼（火帝動爐銷劍戟）",
+                  "Root_Out_the_Turpitude": "永壽幼芽（根除惡孽）",
+                  "Born_to_Obey": "古代零件（生而服從）",
+                  "Winter_Soldiers": "鐵衛扣飾（寒冬的戰士們）",
+                  "Destruction_of_the_Destroyer": "掠奪的本能（毀滅者的覆滅）",
+                  "Nine_Billion_Names": "熄滅原核（九十億個名字）",
+                  "Akashic_Records": "光錐經驗素材（阿卡夏紀錄）",
+                  "Nameless_Land_Nameless_People": "角色經驗素材（無名之地，無名之人）",
+                  "The_Invisible_Hand": "信用點（看不見的手）",
+                  "Scalpel_and_Screwdriver": "鏽跡齒輪 & 老舊臼齒（手術刀與螺絲起子）",
+                  "The_Wages_of_Humanity": "一人嘉禾 & 藥草萃取物（贍養人類）",
+                  "Legend_of_the_Puppet_Master": "廢棄機巧零件 & 玉兆單元（偃師傳說）",
+                  "The_Land_of_Gold": "基本食材 & 蛋白米（黃金大地）",
+                  "Spring_of_Life": "固態淨水 & 虛粒子（生命之泉）",
+                  "Fragments_of_Illusory_Dreams": "安逸 & 碎夢（幻夢的殘片）",
+                  "The_Blossom_in_the_Storm": "氣態流體 & 種子（風暴中怒放的花）",
+                  "Abandoned_and_Insulted": "燃素 & 金屬（被廢棄與損害的）",
+                  "Record_of_Expeditions": "恐懼踏碎血肉（遠征記）",
+                  "Creationism_and_Beyond": "預兆似有若無（造物論及其他）",
+                  "Work_and_Days": "醒目殘翎 & 思維枝槨（工作與時日）"
+                }
+              },
+              "Name_2": {
+                "name": "第2個委託選擇",
+                "help": "",
+                "options": {
+                  "Tranquility_of_Vimala_bhumi": "思緒末屑（離垢清淨）",
+                  "A_Startling_Night_Terror": "蓄夢元件（劫夢驚魂）",
+                  "Fire_Lord_Inflames_Blades_of_War": "工造機杼（火帝動爐銷劍戟）",
+                  "Root_Out_the_Turpitude": "永壽幼芽（根除惡孽）",
+                  "Born_to_Obey": "古代零件（生而服從）",
+                  "Winter_Soldiers": "鐵衛扣飾（寒冬的戰士們）",
+                  "Destruction_of_the_Destroyer": "掠奪的本能（毀滅者的覆滅）",
+                  "Nine_Billion_Names": "熄滅原核（九十億個名字）",
+                  "Akashic_Records": "光錐經驗素材（阿卡夏紀錄）",
+                  "Nameless_Land_Nameless_People": "角色經驗素材（無名之地，無名之人）",
+                  "The_Invisible_Hand": "信用點（看不見的手）",
+                  "Scalpel_and_Screwdriver": "鏽跡齒輪 & 老舊臼齒（手術刀與螺絲起子）",
+                  "The_Wages_of_Humanity": "一人嘉禾 & 藥草萃取物（贍養人類）",
+                  "Legend_of_the_Puppet_Master": "廢棄機巧零件 & 玉兆單元（偃師傳說）",
+                  "The_Land_of_Gold": "基本食材 & 蛋白米（黃金大地）",
+                  "Spring_of_Life": "固態淨水 & 虛粒子（生命之泉）",
+                  "Fragments_of_Illusory_Dreams": "安逸 & 碎夢（幻夢的殘片）",
+                  "The_Blossom_in_the_Storm": "氣態流體 & 種子（風暴中怒放的花）",
+                  "Abandoned_and_Insulted": "燃素 & 金屬（被廢棄與損害的）",
+                  "Record_of_Expeditions": "恐懼踏碎血肉（遠征記）",
+                  "Creationism_and_Beyond": "預兆似有若無（造物論及其他）",
+                  "Work_and_Days": "醒目殘翎 & 思維枝槨（工作與時日）"
+                }
+              },
+              "Name_3": {
+                "name": "第3個委託選擇",
+                "help": "",
+                "options": {
+                  "Tranquility_of_Vimala_bhumi": "思緒末屑（離垢清淨）",
+                  "A_Startling_Night_Terror": "蓄夢元件（劫夢驚魂）",
+                  "Fire_Lord_Inflames_Blades_of_War": "工造機杼（火帝動爐銷劍戟）",
+                  "Root_Out_the_Turpitude": "永壽幼芽（根除惡孽）",
+                  "Born_to_Obey": "古代零件（生而服從）",
+                  "Winter_Soldiers": "鐵衛扣飾（寒冬的戰士們）",
+                  "Destruction_of_the_Destroyer": "掠奪的本能（毀滅者的覆滅）",
+                  "Nine_Billion_Names": "熄滅原核（九十億個名字）",
+                  "Akashic_Records": "光錐經驗素材（阿卡夏紀錄）",
+                  "Nameless_Land_Nameless_People": "角色經驗素材（無名之地，無名之人）",
+                  "The_Invisible_Hand": "信用點（看不見的手）",
+                  "Scalpel_and_Screwdriver": "鏽跡齒輪 & 老舊臼齒（手術刀與螺絲起子）",
+                  "The_Wages_of_Humanity": "一人嘉禾 & 藥草萃取物（贍養人類）",
+                  "Legend_of_the_Puppet_Master": "廢棄機巧零件 & 玉兆單元（偃師傳說）",
+                  "The_Land_of_Gold": "基本食材 & 蛋白米（黃金大地）",
+                  "Spring_of_Life": "固態淨水 & 虛粒子（生命之泉）",
+                  "Fragments_of_Illusory_Dreams": "安逸 & 碎夢（幻夢的殘片）",
+                  "The_Blossom_in_the_Storm": "氣態流體 & 種子（風暴中怒放的花）",
+                  "Abandoned_and_Insulted": "燃素 & 金屬（被廢棄與損害的）",
+                  "Record_of_Expeditions": "恐懼踏碎血肉（遠征記）",
+                  "Creationism_and_Beyond": "預兆似有若無（造物論及其他）",
+                  "Work_and_Days": "醒目殘翎 & 思維枝槨（工作與時日）"
+                }
+              },
+              "Name_4": {
+                "name": "第4個委託選擇",
+                "help": "",
+                "options": {
+                  "Tranquility_of_Vimala_bhumi": "思緒末屑（離垢清淨）",
+                  "A_Startling_Night_Terror": "蓄夢元件（劫夢驚魂）",
+                  "Fire_Lord_Inflames_Blades_of_War": "工造機杼（火帝動爐銷劍戟）",
+                  "Root_Out_the_Turpitude": "永壽幼芽（根除惡孽）",
+                  "Born_to_Obey": "古代零件（生而服從）",
+                  "Winter_Soldiers": "鐵衛扣飾（寒冬的戰士們）",
+                  "Destruction_of_the_Destroyer": "掠奪的本能（毀滅者的覆滅）",
+                  "Nine_Billion_Names": "熄滅原核（九十億個名字）",
+                  "Akashic_Records": "光錐經驗素材（阿卡夏紀錄）",
+                  "Nameless_Land_Nameless_People": "角色經驗素材（無名之地，無名之人）",
+                  "The_Invisible_Hand": "信用點（看不見的手）",
+                  "Scalpel_and_Screwdriver": "鏽跡齒輪 & 老舊臼齒（手術刀與螺絲起子）",
+                  "The_Wages_of_Humanity": "一人嘉禾 & 藥草萃取物（贍養人類）",
+                  "Legend_of_the_Puppet_Master": "廢棄機巧零件 & 玉兆單元（偃師傳說）",
+                  "The_Land_of_Gold": "基本食材 & 蛋白米（黃金大地）",
+                  "Spring_of_Life": "固態淨水 & 虛粒子（生命之泉）",
+                  "Fragments_of_Illusory_Dreams": "安逸 & 碎夢（幻夢的殘片）",
+                  "The_Blossom_in_the_Storm": "氣態流體 & 種子（風暴中怒放的花）",
+                  "Abandoned_and_Insulted": "燃素 & 金屬（被廢棄與損害的）",
+                  "Record_of_Expeditions": "恐懼踏碎血肉（遠征記）",
+                  "Creationism_and_Beyond": "預兆似有若無（造物論及其他）",
+                  "Work_and_Days": "醒目殘翎 & 思維枝槨（工作與時日）"
+                }
+              },
+              "Duration": {
+                "name": "派遣時間",
+                "help": "",
+                "options": {
+                  "4": "4小時",
+                  "8": "8小時",
+                  "12": "12小時",
+                  "20": "20小時"
+                }
+              },
+              "Event": {
+                "name": "有活動時參加活動委託",
+                "help": ""
+              }
+            }
+          }
+        }
+      },
+      "DataUpdate": {
+        "name": "儀表板更新",
+        "groups": {
+          "ItemStorage": {
+            "name": "儀表板",
+            "help": "",
+            "items": {
+              "Credit": {
+                "name": "信用點",
+                "help": ""
+              },
+              "StallerJade": {
+                "name": "星瓊",
+                "help": ""
+              }
+            }
+          },
+          "CloudStorage": {
+            "name": "雲遊戲",
+            "help": "",
+            "items": {
+              "CloudRemainSeasonPass": {
+                "name": "暢玩卡剩餘 X 天",
+                "help": ""
+              },
+              "CloudRemainPaid": {
+                "name": "星雲幣剩餘 X 分鐘",
+                "help": ""
+              },
+              "CloudRemainFree": {
+                "name": "免費時間剩餘 X 分鐘",
+                "help": ""
+              }
+            }
+          }
+        }
+      },
+      "Freebies": {
+        "name": "免費獎勵",
+        "groups": {
+          "SupportReward": {
+            "name": "支援獎勵",
+            "help": "",
+            "items": {
+              "Collect": {
+                "name": "收取支援獎勵",
+                "help": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Weekly": {
+    "name": "每週",
+    "tasks": {
+      "Weekly": {
+        "name": "歷戰餘響",
+        "groups": {
+          "Weekly": {
+            "name": "歷戰餘響設定",
+            "help": "歷戰餘響每週次數耗儘後仍可繼續挑戰，不消耗體力不獲得獎勵但是可以完成每日任務",
+            "items": {
+              "Name": {
+                "name": "副本名稱",
+                "help": "",
+                "options": {
+                  "Echo_of_War_Glance_of_Twilight": "晨昏的回眸 (翁法羅斯)",
+                  "Echo_of_War_Inner_Beast_Battlefield": "心獸的戰場 (仙舟「羅浮」)",
+                  "Echo_of_War_Salutations_of_Ashen_Dreams": "塵夢的贊禮 (匹諾康尼)",
+                  "Echo_of_War_Borehole_Planet_Past_Nightmares": "蛀星的舊魘 (太空站「黑塔」)",
+                  "Echo_of_War_Divine_Seed": "不死的神實 (仙舟「羅浮」)",
+                  "Echo_of_War_End_of_the_Eternal_Freeze": "寒潮的落幕 (雅利洛-Ⅵ)",
+                  "Echo_of_War_Destruction_Beginning": "毀滅的開端 (太空站「黑塔」)"
+                }
+              },
+              "Team": {
+                "name": "打本隊伍",
+                "help": "",
+                "options": {
+                  "1": "1",
+                  "2": "2",
+                  "3": "3",
+                  "4": "4",
+                  "5": "5",
+                  "6": "6",
+                  "7": "7",
+                  "8": "8",
+                  "9": "9"
+                }
+              }
+            }
+          },
+          "DungeonSupport": {
+            "name": "支援設定",
+            "help": "",
+            "items": {
+              "Use": {
+                "name": "使用好友支援",
+                "help": "",
+                "options": {
+                  "always_use": "總是使用",
+                  "do_not_use": "不使用"
+                }
+              },
+              "Character": {
+                "name": "好友支援角色",
+                "help": "選擇好友支援角色，未找到則選擇默認（第一個）角色\n支援角色不要與隊伍中的角色重複，建議置頂好友角色",
+                "options": {
+                  "FirstCharacter": "支援列表第一個角色",
+                  "Hyacine": "[3.3] 風堇",
+                  "Cipher": "[3.3] 賽飛兒",
+                  "Castorice": "[3.2] 遐蝶",
+                  "Anaxa": "[3.2] 那刻夏",
+                  "Tribbie": "[3.1] 緹寶",
+                  "Mydei": "[3.1] 萬敵",
+                  "TheHerta": "[3.0] 大黑塔",
+                  "Aglaea": "[3.0] 阿格萊雅",
+                  "Sunday": "[2.7] 星期日",
+                  "Fugue": "[2.7] 忘歸人",
+                  "Rappa": "[2.6] 亂破",
+                  "Feixiao": "[2.5] 飛霄",
+                  "Lingsha": "[2.5] 靈砂",
+                  "Moze": "[2.5] 貊澤",
+                  "Yunli": "[2.4] 雲璃",
+                  "March7thTheHunt": "[2.4] 三月七•巡獵",
+                  "Jiaoqiu": "[2.4] 椒丘",
+                  "Firefly": "[2.3] 流螢",
+                  "Jade": "[2.3] 翡翠",
+                  "Robin": "[2.2] 知更鳥",
+                  "Boothill": "[2.2] 波提歐",
+                  "Acheron": "[2.1] 黃泉",
+                  "Aventurine": "[2.1] 砂金",
+                  "Gallagher": "[2.1] 加拉赫",
+                  "BlackSwan": "[2.0] 黑天鵝",
+                  "Sparkle": "[2.0] 花火",
+                  "Misha": "[2.0] 米沙",
+                  "RuanMei": "[1.6] 阮•梅",
+                  "DrRatio": "[1.6] 真理醫生",
+                  "Xueyi": "[1.6] 雪衣",
+                  "Huohuo": "[1.5] 藿藿",
+                  "Argenti": "[1.5] 銀枝",
+                  "Hanya": "[1.5] 寒鴉",
+                  "Jingliu": "[1.4] 鏡流",
+                  "TopazNumby": "[1.4] 托帕&帳帳",
+                  "Guinaifen": "[1.4] 桂乃芬",
+                  "DanHengImbibitorLunae": "[1.3] 丹恆•飲月",
+                  "FuXuan": "[1.3] 符玄",
+                  "Lynx": "[1.3] 玲可",
+                  "Blade": "[1.2] 刃",
+                  "Kafka": "[1.2] 卡芙卡",
+                  "Luka": "[1.2] 盧卡",
+                  "SilverWolf": "[1.1] 銀狼",
+                  "Luocha": "[1.1] 羅剎",
+                  "Yukong": "[1.1] 馭空",
+                  "Seele": "[1.0] 希兒",
+                  "JingYuan": "[1.0] 景元",
+                  "TrailblazerDestruction": "開拓者•毀滅",
+                  "TrailblazerPreservation": "開拓者•存護",
+                  "TrailblazerHarmony": "開拓者•同諧",
+                  "TrailblazerRemembrance": "開拓者•記憶",
+                  "Himeko": "姬子",
+                  "Welt": "瓦爾特",
+                  "Gepard": "傑帕德",
+                  "Bronya": "布洛妮婭",
+                  "Clara": "克拉拉",
+                  "Yanqing": "彥卿",
+                  "Bailu": "白露",
+                  "March7thPreservation": "三月七•存護",
+                  "DanHeng": "丹恆",
+                  "Asta": "艾絲妲",
+                  "Serval": "希露瓦",
+                  "Herta": "黑塔",
+                  "Qingque": "青雀",
+                  "Sushang": "素裳",
+                  "Hook": "虎克",
+                  "Arlan": "阿蘭",
+                  "Sampo": "桑博",
+                  "Tingyun": "停雲",
+                  "Pela": "佩拉",
+                  "Natasha": "娜塔莎"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Rogue": {
+        "name": "模擬宇宙",
+        "groups": {
+          "RogueWorld": {
+            "name": "模拟宇宙设置",
+            "help": "",
+            "items": {
+              "World": {
+                "name": "模拟宇宙关卡",
+                "help": "",
+                "options": {
+                  "Simulated_Universe_World_3": "第三世界",
+                  "Simulated_Universe_World_4": "第四世界",
+                  "Simulated_Universe_World_5": "第五世界",
+                  "Simulated_Universe_World_6": "第六世界",
+                  "Simulated_Universe_World_8": "第八世界"
+                }
+              },
+              "Path": {
+                "name": "命途",
+                "help": "",
+                "options": {
+                  "Preservation": "存護",
+                  "Remembrance": "記憶",
+                  "Nihility": "虛無",
+                  "Abundance": "豐饒",
+                  "The_Hunt": "巡獵",
+                  "Destruction": "毀滅",
+                  "Elation": "歡愉",
+                  "Propagation": "繁育",
+                  "Erudition": "智識"
+                }
+              },
+              "Bonus": {
+                "name": "開拓祝福三選一",
+                "help": "",
+                "options": {
+                  "Blessing Universe": "祝福宇宙（獲得一個祝福）",
+                  "Miracle Universe": "神奇宇宙（獲得一個奇物）",
+                  "Fragmented Universe": "破碎宇宙（獲得宇宙碎片）"
+                }
+              },
+              "DomainStrategy": {
+                "name": "區域策略",
+                "help": "偏好戰鬥：適用於平民隊伍，过關時間較長\n偏好事件：需要高練隊伍，过關時間較短",
+                "options": {
+                  "combat": "偏好戰鬥",
+                  "occurrence": "偏好事件"
+                }
+              },
+              "UseImmersifier": {
+                "name": "使用沉浸器領取遺器",
+                "help": ""
+              },
+              "DoubleEvent": {
+                "name": "參與雙倍內圈遺器活動",
+                "help": ""
+              },
+              "WeeklyFarming": {
+                "name": "每週農100精英怪",
+                "help": ""
+              },
+              "UseStamina": {
+                "name": "用開拓力農內圈遺器",
+                "help": "優先將體力用於農內圈遺器，僅優先於養成規劃"
+              },
+              "SimulatedUniverseFarm": {
+                "name": "農精英怪進度",
+                "help": ""
+              }
+            }
+          },
+          "RogueBlessing": {
+            "name": "祝福設定",
+            "help": "",
+            "items": {
+              "PresetBlessingFilter": {
+                "name": "祝福過濾器",
+                "help": "",
+                "options": {
+                  "preset": "預設",
+                  "custom": "自訂"
+                }
+              },
+              "CustomBlessingFilter": {
+                "name": "自訂祝福過濾器",
+                "help": "僅在\"祝福過濾器\"設定為\"自訂\"時生效"
+              },
+              "PresetCurioFilter": {
+                "name": "奇物過濾器",
+                "help": "",
+                "options": {
+                  "preset": "預設",
+                  "custom": "自訂"
+                }
+              },
+              "CustomCurioFilter": {
+                "name": "自訂奇物過濾器",
+                "help": "僅在\"奇物過濾器\"設定為\"自訂\"時生效"
+              },
+              "PresetResonanceFilter": {
+                "name": "迴響構音過濾器",
+                "help": "",
+                "options": {
+                  "preset": "預設",
+                  "custom": "自訂"
+                }
+              },
+              "CustomResonanceFilter": {
+                "name": "自訂迴響構音過濾器",
+                "help": "僅在\"迴響構音過濾器\"設定為\"自訂\"時生效"
+              },
+              "SelectionStrategy": {
+                "name": "對於未解鎖的圖鑑",
+                "help": "",
+                "options": {
+                  "follow-presets": "不影響選擇",
+                  "unrecorded-first": "優先選擇",
+                  "before-random": "無法滿足過濾器時才選擇"
+                }
+              }
+            }
+          },
+          "RogueDebug": {
+            "name": "開發設定",
+            "help": "",
+            "items": {
+              "DebugMode": {
+                "name": "開發模式",
+                "help": "無停止條件，無異常處理，遇錯誤即停止，請依檔案回報異常：https://github.com/LmeSzinc/StarRailCopilot/wiki/RogueMap_cn"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Tool": {
+    "name": "工具",
+    "tasks": {
+      "Daemon": {
+        "name": "劇情連點器",
+        "groups": {
+          "Daemon": {
+            "name": "劇情連點器",
+            "help": "工具需要停止調度器再單獨運作",
+            "items": {
+              "Enable": {
+                "name": "劇情連點器",
+                "help": "監聽畫面自動點擊劇情、手機聊天、模擬宇宙祝福（遵循模擬宇宙任務設定）",
+                "options": {
+                  "true": "已啟用"
+                }
+              },
+              "AimClicker": {
+                "name": "點擊被瞄準破壞物和敵人",
+                "help": "",
+                "options": {
+                  "item_enemy": "點擊破壞物和敵人",
+                  "item": "僅點擊破壞物",
+                  "enemy": "僅點擊敵人",
+                  "do_not_click": "不點擊"
+                }
+              }
+            }
+          }
+        }
+      },
+      "PlannerScan": {
+        "name": "角色養成規劃",
+        "groups": {
+          "PlannerScan": {
+            "name": "辨識角色養成規劃計算結果",
+            "help": "工具需要停止調度器再單獨運行\n使用前需要在遊戲內養成計算器中設定養成目標，併計算出結果，在計算結果頁面啟動養成規劃識別。詳細使用教程 請參閱：\nhttps://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn",
+            "items": {
+              "ResultAdd": {
+                "name": "累加多次掃描結果",
+                "help": "需要養成多個角色時勾選，同時養成多個角色\n只養成一個角色不勾選，每次掃描時刷新養成目標"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
