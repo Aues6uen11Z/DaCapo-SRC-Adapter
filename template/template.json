@@ -6,7 +6,7 @@
           "value": "zh-CN"
         },
         "work_dir": {
-          "value": "./repos/DaCapo-SRC-Adapter/StarRailCopilot",
+          "value": "./repos/DaCapo-SRC-Adapter",
           "disabled": true
         },
         "background": {
@@ -159,9 +159,6 @@
         "env_name": {
           "value": "src"
         },
-        "deps_path": {
-          "value": "./StarRailCopilot/requirements.txt"
-        },
         "python_version": {
           "value": "3.10"
         }
@@ -175,7 +172,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src Dungeon"
+          "value": "py main.py src Dungeon"
         }
       },
       "Planner": {
@@ -447,7 +444,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src Ornament"
+          "value": "py main.py src Ornament"
         }
       },
       "Ornament": {
@@ -608,7 +605,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src DailyQuest"
+          "value": "py main.py src DailyQuest"
         }
       },
       "DailyStorage": {
@@ -632,7 +629,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src BattlePass"
+          "value": "py main.py src BattlePass"
         }
       },
       "BattlePassStorage": {
@@ -698,7 +695,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src Assignment"
+          "value": "py main.py src Assignment"
         }
       },
       "Assignment": {
@@ -849,7 +846,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src DataUpdate"
+          "value": "py main.py src DataUpdate"
         }
       },
       "ItemStorage": {
@@ -893,7 +890,7 @@
           "value": true
         },
         "command": {
-          "value": "py ../main.py src Freebies"
+          "value": "py main.py src Freebies"
         }
       },
       "SupportReward": {
@@ -913,7 +910,7 @@
           "value": false
         },
         "command": {
-          "value": "py ../main.py src Weekly"
+          "value": "py main.py src Weekly"
         }
       },
       "Weekly": {
@@ -1045,7 +1042,7 @@
           "value": false
         },
         "command": {
-          "value": "py ../main.py src Rogue"
+          "value": "py main.py src Rogue"
         }
       },
       "RogueWorld": {
@@ -1201,7 +1198,7 @@
           "value": false
         },
         "command": {
-          "value": "py ../main.py src Daemon"
+          "value": "py main.py src Daemon"
         }
       },
       "Daemon": {
@@ -1232,7 +1229,7 @@
           "value": false
         },
         "command": {
-          "value": "py ../main.py src PlannerScan"
+          "value": "py main.py src PlannerScan"
         }
       },
       "PlannerScan": {

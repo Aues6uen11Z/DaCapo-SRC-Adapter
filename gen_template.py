@@ -22,7 +22,7 @@ def gen_template():
                         "value": "zh-CN",
                     },
                     "work_dir": {
-                        "value": "./repos/DaCapo-SRC-Adapter/StarRailCopilot",
+                        "value": "./repos/DaCapo-SRC-Adapter",
                         "disabled": True,
                     },
                     "background": {
@@ -43,7 +43,6 @@ def gen_template():
                     "env_name": {
                         "value": "src",
                     },
-                    "deps_path": {"value": "./StarRailCopilot/requirements.txt"},
                     "python_version": {
                         "value": "3.10",
                     },
@@ -77,7 +76,7 @@ def gen_template():
                         "value": True if menu_name == "Daily" else False,
                     },
                     "command": {
-                        "value": f"py ../main.py src {task_name}",
+                        "value": f"py main.py src {task_name}",
                     },
                 }
             }
