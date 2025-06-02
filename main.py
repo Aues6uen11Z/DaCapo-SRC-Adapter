@@ -15,7 +15,6 @@ def check_repository():
                     "git",
                     "clone",
                     "https://github.com/LmeSzinc/StarRailCopilot.git",
-                    str(project_root),
                 ],
                 check=True,
                 cwd=Path(__file__).parent,

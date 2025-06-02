@@ -1,13 +1,12 @@
 import json
-import os
 from pathlib import Path
 import sys
 import time
 import inflection
 
+
 project_root = Path(__file__).parent / "StarRailCopilot"
 sys.path.insert(0, str(project_root))
-os.chdir(project_root)
 
 from StarRailCopilot.module.base.decorator import del_cached_property  # noqa: E402
 from StarRailCopilot.module.config.deep import deep_get, deep_set  # noqa: E402
@@ -16,6 +15,8 @@ from StarRailCopilot.module.notify import handle_notify  # noqa: E402
 from StarRailCopilot.module.logger import logger  # noqa: E402
 from StarRailCopilot.src import StarRailCopilot  # noqa: E402
 from gen_template import gen_i18n, gen_template  # noqa: E402
+
+logger.handlers = logger.handlers[:2]
 
 
 class Adapter(StarRailCopilot):
@@ -231,32 +232,18 @@ class Adapter(StarRailCopilot):
         task = task_name
 
         while True:
-            # Check game server maintenance
-            self.checker.wait_until_available()
-            if self.checker.is_recovered():
-                del_cached_property(self, "config")
-                logger.info("Server or network is recovered. Restart game client")
-                self.config.task_call("Restart")
-
             # Init device and change server
             _ = self.device
             self.device.config = self.config
-
-            # # Skip first restart
-            # if self.is_first_task and task == "Restart":
-            #     logger.info("Skip task `Restart` at scheduler start")
-            #     self.config.task_delay(server_update=True)
-            #     del_cached_property(self, "config")
-            #     continue
 
             # Run
             logger.info(f"Scheduler: Start task `{task}`")
             self.device.stuck_record_clear()
             self.device.click_record_clear()
             logger.hr(task, level=0)
+            self.config.bind(task)
             success = self.run(inflection.underscore(task))
             logger.info(f"Scheduler: End task `{task}`")
-            # self.is_first_task = False
 
             # Check failures
             failed = deep_get(self.failure_record, keys=task, default=0)
