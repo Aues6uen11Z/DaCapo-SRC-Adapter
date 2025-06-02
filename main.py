@@ -2,6 +2,14 @@ import argparse
 from pathlib import Path
 import subprocess
 import sys
+from rich._windows import WindowsConsoleFeatures
+import rich.console
+
+
+rich.console._windows_console_features = WindowsConsoleFeatures(
+    vt=True,
+    truecolor=True,
+)
 
 
 def check_repository():
