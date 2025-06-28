@@ -76,7 +76,7 @@ def gen_template():
                         "value": True if menu_name == "Daily" else False,
                     },
                     "priority": {
-                        "value": 9,
+                        "value": 7,
                     },
                     "command": {
                         "value": f"py main.py src {task_name}",
