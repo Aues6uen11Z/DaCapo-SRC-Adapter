@@ -171,6 +171,9 @@
         "active": {
           "value": true
         },
+        "priority": {
+          "value": 9
+        },
         "command": {
           "value": "py main.py src Dungeon"
         }
@@ -430,6 +433,12 @@
           "option": [],
           "disabled": false
         },
+        "FuelOnlyPlanner": {
+          "type": "checkbox",
+          "value": false,
+          "option": [],
+          "disabled": false
+        },
         "FuelReserve": {
           "type": "input",
           "value": 5,
@@ -442,6 +451,9 @@
       "_Base": {
         "active": {
           "value": true
+        },
+        "priority": {
+          "value": 9
         },
         "command": {
           "value": "py main.py src Ornament"
@@ -591,6 +603,12 @@
           "option": [],
           "disabled": false
         },
+        "FuelOnlyPlanner": {
+          "type": "checkbox",
+          "value": false,
+          "option": [],
+          "disabled": false
+        },
         "FuelReserve": {
           "type": "input",
           "value": 5,
@@ -603,6 +621,9 @@
       "_Base": {
         "active": {
           "value": true
+        },
+        "priority": {
+          "value": 9
         },
         "command": {
           "value": "py main.py src DailyQuest"
@@ -627,6 +648,9 @@
       "_Base": {
         "active": {
           "value": true
+        },
+        "priority": {
+          "value": 9
         },
         "command": {
           "value": "py main.py src BattlePass"
@@ -693,6 +717,9 @@
       "_Base": {
         "active": {
           "value": true
+        },
+        "priority": {
+          "value": 9
         },
         "command": {
           "value": "py main.py src Assignment"
@@ -845,6 +872,9 @@
         "active": {
           "value": true
         },
+        "priority": {
+          "value": 9
+        },
         "command": {
           "value": "py main.py src DataUpdate"
         }
@@ -889,16 +919,44 @@
         "active": {
           "value": true
         },
+        "priority": {
+          "value": 9
+        },
         "command": {
           "value": "py main.py src Freebies"
         }
       },
-      "SupportReward": {
-        "Collect": {
+      "Freebies": {
+        "SupportReward": {
           "type": "checkbox",
           "value": true,
           "option": [],
           "disabled": false
+        },
+        "MailReward": {
+          "type": "checkbox",
+          "value": true,
+          "option": [],
+          "disabled": false
+        },
+        "RedemptionCode": {
+          "type": "checkbox",
+          "value": true,
+          "option": [],
+          "disabled": false
+        }
+      }
+    },
+    "Done": {
+      "_Base": {
+        "active": {
+          "value": true
+        },
+        "priority": {
+          "value": 0
+        },
+        "command": {
+          "value": "py main.py src Done"
         }
       }
     }
@@ -908,6 +966,9 @@
       "_Base": {
         "active": {
           "value": false
+        },
+        "priority": {
+          "value": 9
         },
         "command": {
           "value": "py main.py src Weekly"
@@ -1040,6 +1101,9 @@
       "_Base": {
         "active": {
           "value": false
+        },
+        "priority": {
+          "value": 9
         },
         "command": {
           "value": "py main.py src Rogue"
@@ -1197,6 +1261,9 @@
         "active": {
           "value": false
         },
+        "priority": {
+          "value": 9
+        },
         "command": {
           "value": "py main.py src Daemon"
         }
@@ -1227,6 +1294,9 @@
       "_Base": {
         "active": {
           "value": false
+        },
+        "priority": {
+          "value": 9
         },
         "command": {
           "value": "py main.py src PlannerScan"

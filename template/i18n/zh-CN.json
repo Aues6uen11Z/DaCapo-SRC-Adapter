@@ -419,6 +419,10 @@
                 "name": "使用燃料",
                 "help": ""
               },
+              "FuelOnlyPlanner": {
+                "name": "仅在养成规划时使用燃料",
+                "help": ""
+              },
               "FuelReserve": {
                 "name": "保留 X 燃料",
                 "help": ""
@@ -572,6 +576,10 @@
               },
               "UseFuel": {
                 "name": "使用燃料",
+                "help": ""
+              },
+              "FuelOnlyPlanner": {
+                "name": "仅在养成规划时使用燃料",
                 "help": ""
               },
               "FuelReserve": {
@@ -829,17 +837,29 @@
       "Freebies": {
         "name": "白嫖奖励",
         "groups": {
-          "SupportReward": {
-            "name": "支援奖励",
+          "Freebies": {
+            "name": "白嫖奖励设置",
             "help": "",
             "items": {
-              "Collect": {
+              "SupportReward": {
                 "name": "领取支援奖励",
                 "help": ""
+              },
+              "MailReward": {
+                "name": "领取邮件奖励",
+                "help": ""
+              },
+              "RedemptionCode": {
+                "name": "领取前瞻兑换码",
+                "help": "自动获取兑换码，你不需要填写具体的兑换码"
               }
             }
           }
         }
+      },
+      "Done": {
+        "name": "结束任务",
+        "groups": {}
       }
     }
   },

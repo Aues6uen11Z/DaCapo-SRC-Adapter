@@ -75,6 +75,9 @@ def gen_template():
                     "active": {
                         "value": True if menu_name == "Daily" else False,
                     },
+                    "priority": {
+                        "value": 9,
+                    },
                     "command": {
                         "value": f"py main.py src {task_name}",
                     },
@@ -106,6 +109,21 @@ def gen_template():
                         else False,
                     }
                     template[menu_name][task_name][group_name][item_name] = item_config
+
+    # 手动加一个结束任务
+    template["Daily"]["Done"] = {
+        "_Base": {
+            "active": {
+                "value": True,
+            },
+            "priority": {
+                "value": 0,
+            },
+            "command": {
+                "value": "py main.py src Done",
+            },
+        }
+    }
 
     template_path.write_text(
         json.dumps(template, indent=2, ensure_ascii=False), encoding="utf-8"
@@ -153,6 +171,13 @@ def gen_i18n():
 
                 task_trans = new_trans[menu_name]["tasks"]
                 for task_name, task_config in menu_config.items():
+                    if task_name == "Done":
+                        task_trans["Done"] = {
+                            "name": "结束任务" if i18n_path.name == "zh-CN.json" else "Done",
+                            "groups": {},
+                        }
+                        continue
+                    
                     task_trans[task_name] = {
                         "name": orig_trans["Task"][task_name]["name"],
                         "groups": {},

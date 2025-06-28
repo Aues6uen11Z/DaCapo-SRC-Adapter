@@ -419,6 +419,10 @@
                 "name": "Usar combustible",
                 "help": ""
               },
+              "FuelOnlyPlanner": {
+                "name": "Usar combustible solo en el planificador de personajes",
+                "help": ""
+              },
               "FuelReserve": {
                 "name": "Reserva X Combustible",
                 "help": ""
@@ -572,6 +576,10 @@
               },
               "UseFuel": {
                 "name": "Usar combustible",
+                "help": ""
+              },
+              "FuelOnlyPlanner": {
+                "name": "Usar combustible solo en el planificador de personajes",
                 "help": ""
               },
               "FuelReserve": {
@@ -829,17 +837,29 @@
       "Freebies": {
         "name": "Freebies",
         "groups": {
-          "SupportReward": {
-            "name": "Support Reward",
+          "Freebies": {
+            "name": "Configuración de recompensas de obsequios",
             "help": "",
             "items": {
-              "Collect": {
-                "name": "Receive support reward",
+              "SupportReward": {
+                "name": "Recibir recompensas de apoyo",
                 "help": ""
+              },
+              "MailReward": {
+                "name": "Recibir recompensas por correo",
+                "help": ""
+              },
+              "RedemptionCode": {
+                "name": "Canjear códigos de programa especial de versiones",
+                "help": "Obtenga automáticamente el código de canje, no es necesario que complete el código de canje específico"
               }
             }
           }
         }
+      },
+      "Done": {
+        "name": "Done",
+        "groups": {}
       }
     }
   },

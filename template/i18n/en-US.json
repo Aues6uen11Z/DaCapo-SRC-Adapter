@@ -419,6 +419,10 @@
                 "name": "Use Fuel",
                 "help": ""
               },
+              "FuelOnlyPlanner": {
+                "name": "Use Fuel Only On Character Planner",
+                "help": ""
+              },
               "FuelReserve": {
                 "name": "Reserve X Fuel",
                 "help": ""
@@ -572,6 +576,10 @@
               },
               "UseFuel": {
                 "name": "Use Fuel",
+                "help": ""
+              },
+              "FuelOnlyPlanner": {
+                "name": "Use Fuel Only On Character Planner",
                 "help": ""
               },
               "FuelReserve": {
@@ -829,17 +837,29 @@
       "Freebies": {
         "name": "Freebies",
         "groups": {
-          "SupportReward": {
-            "name": "Support Reward",
+          "Freebies": {
+            "name": "Freebies Reward Settings",
             "help": "",
             "items": {
-              "Collect": {
-                "name": "Receive support reward",
+              "SupportReward": {
+                "name": "Receive support rewards",
                 "help": ""
+              },
+              "MailReward": {
+                "name": "Receive mail rewards",
+                "help": ""
+              },
+              "RedemptionCode": {
+                "name": "Redeem codes of versioning special program",
+                "help": "Automatically obtain the redemption code, you do not need to fill in the specific redemption code"
               }
             }
           }
         }
+      },
+      "Done": {
+        "name": "Done",
+        "groups": {}
       }
     }
   },

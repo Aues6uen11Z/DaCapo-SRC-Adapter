@@ -13,6 +13,7 @@ from StarRailCopilot.module.config.deep import deep_get, deep_set  # noqa: E402
 from StarRailCopilot.installer import run_install, run_set  # noqa: E402
 from StarRailCopilot.module.notify import handle_notify  # noqa: E402
 from StarRailCopilot.module.logger import logger  # noqa: E402
+from StarRailCopilot.module.base.resource import release_resources  # noqa: E402
 from StarRailCopilot.src import StarRailCopilot  # noqa: E402
 from gen_template import gen_i18n, gen_template  # noqa: E402
 
@@ -224,6 +225,27 @@ class Adapter(StarRailCopilot):
         src_ist_path.write_text(
             json.dumps(src_ist, indent=2, ensure_ascii=False), encoding="utf-8"
         )
+
+    def done(self):
+        method = self.config.Optimization_WhenTaskQueueEmpty
+        if method == 'close_game':
+            logger.info('Close game during wait')
+            self.run('stop')
+            release_resources()
+            self.device.release_during_wait()
+        elif method == 'goto_main':
+            logger.info('Goto main page during wait')
+            self.run('goto_main')
+            release_resources()
+            self.device.release_during_wait()
+        elif method == 'stay_there':
+            logger.info('Stay there during wait')
+            release_resources()
+            self.device.release_during_wait()
+        else:
+            logger.warning(f'Invalid Optimization_WhenTaskQueueEmpty: {method}, fallback to stay_there')
+            release_resources()
+            self.device.release_during_wait()
 
     def dacapo_task(self, task_name):
         logger.set_file_logger(self.config_name)

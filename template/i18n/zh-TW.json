@@ -419,6 +419,10 @@
                 "name": "使用燃料",
                 "help": ""
               },
+              "FuelOnlyPlanner": {
+                "name": "僅在養成規劃時使用燃料",
+                "help": ""
+              },
               "FuelReserve": {
                 "name": "保留 X 燃料",
                 "help": ""
@@ -572,6 +576,10 @@
               },
               "UseFuel": {
                 "name": "使用燃料",
+                "help": ""
+              },
+              "FuelOnlyPlanner": {
+                "name": "僅在養成規劃時使用燃料",
                 "help": ""
               },
               "FuelReserve": {
@@ -829,17 +837,29 @@
       "Freebies": {
         "name": "免費獎勵",
         "groups": {
-          "SupportReward": {
-            "name": "支援獎勵",
+          "Freebies": {
+            "name": "白嫖獎勵設定",
             "help": "",
             "items": {
-              "Collect": {
-                "name": "收取支援獎勵",
+              "SupportReward": {
+                "name": "領取支援獎勵",
                 "help": ""
+              },
+              "MailReward": {
+                "name": "領取郵件獎勵",
+                "help": ""
+              },
+              "RedemptionCode": {
+                "name": "領取前瞻兌換碼",
+                "help": "自動取得兌換碼，你不需要填寫具體的兌換碼"
               }
             }
           }
         }
+      },
+      "Done": {
+        "name": "Done",
+        "groups": {}
       }
     }
   },
