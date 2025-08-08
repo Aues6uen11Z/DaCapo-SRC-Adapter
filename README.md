@@ -1,6 +1,12 @@
 # DaCapo-SRC-Adapter
 在[DaCapo](https://github.com/Aues6uen11Z/DaCapo)上运行[StarRailCopilot](https://github.com/LmeSzinc/StarRailCopilot)
 
+![](./docs/1.png)
+
+![](./docs/2.png)
+
+![](./docs/3.png)
+
 # 使用方法
 
 1. 下载安装最新版[DaCapo](https://github.com/Aues6uen11Z/DaCapo/releases/latest)
