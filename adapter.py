@@ -244,9 +244,14 @@ class Adapter(StarRailCopilot):
             self.device.release_during_wait()
         elif method == 'close_emulator':
             logger.info('Close emulator during wait')
-            self.run('close_emulator')
+            self.run('stop')
             release_resources()
             self.device.release_during_wait()
+            try:
+                self.device.emulator_stop()
+                logger.info('Emulator stopped successfully')
+            except Exception as e:
+                logger.warning(f'Failed to stop emulator: {e}')
         else:
             logger.warning(f'Invalid Optimization_WhenTaskQueueEmpty: {method}, fallback to stay_there')
             release_resources()
