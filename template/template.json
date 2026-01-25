@@ -17,7 +17,7 @@
           "value": "./repos/DaCapo-SRC-Adapter/src.json"
         },
         "log_path": {
-          "value": "./repos/DaCapo-SRC-Adapter/StarRailCopilot/log",
+          "value": "./StarRailCopilot/log",
           "disabled": true
         }
       },
