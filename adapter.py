@@ -55,6 +55,7 @@ class Adapter(StarRailCopilot):
                     f"AdbExecutable={adb_path.as_posix()}",
                     "ReplaceAdb=true",
                     "AutoConnect=true",
+                    "InstallDependencies=false"
                 ]
             )
         else:
@@ -65,6 +66,7 @@ class Adapter(StarRailCopilot):
                     "PypiMirror=https://pypi.tuna.tsinghua.edu.cn/simple",
                     "ReplaceAdb=false",
                     "AutoConnect=false",
+                    "InstallDependencies=false"
                 ]
             )
         run_install()
